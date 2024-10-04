@@ -343,12 +343,12 @@
                     console.error('fehler beim lesen der daten:', error);
                 } else {
                     let antwort = data
-                    localstorage.setitem(table_all[table_one], JSON.stringify(antwort))
-                    //let meinarray = JSON.parse(localstorage.getitem(table_all[table_one]))
+                    localStorage.setItem(table_all[table_one], JSON.stringify(antwort))
+                    //let meinarray = JSON.parse(localStorage.getItem(table_all[table_one]))
                 }
             }
             var ausgewähltesjahr = document.getelementbyid("year_select").value
-            localstorage.setitem("ausgewähltesjahr", ausgewähltesjahr)
+            localStorage.setItem("ausgewähltesjahr", ausgewähltesjahr)
             urlaub_zählen()
             loginshownone()
             generatecalendar(ausgewähltesjahr)
@@ -415,11 +415,11 @@
         function urlaub_zählen() {
 
             //beide urlaube im jeweiligen jahr durchlaufen und in die legende schreiben
-            let ausgewähltesjahr = localstorage.getitem("ausgewähltesjahr")
+            let ausgewähltesjahr = localStorage.getItem("ausgewähltesjahr")
 
 
 
-            urlaubstage_anzahl_niko = JSON.parse(localstorage.getitem("cal_niko"))
+            urlaubstage_anzahl_niko = JSON.parse(localStorage.getItem("cal_niko"))
             var count = 0;
             for (var i = 0; i < urlaubstage_anzahl_niko.length; i++) {
                 if (urlaubstage_anzahl_niko[i][ausgewähltesjahr] == 1) {
@@ -431,7 +431,7 @@
 
 
 
-            urlaubstage_anzahl_sophie = JSON.parse(localstorage.getitem("cal_sophie"))
+            urlaubstage_anzahl_sophie = JSON.parse(localStorage.getItem("cal_sophie"))
             var count = 0;
             for (var i = 0; i < urlaubstage_anzahl_sophie.length; i++) {
                 if (urlaubstage_anzahl_sophie[i][ausgewähltesjahr] == 1) {
@@ -511,29 +511,29 @@
                     var feriensophie = '<button id="' + tag + '_ferien_cal_sophie_id" title="ferien sophie" class="feriebutton" onclick="ferien_click(\'cal_sophie\', \'' + tag + '\')"></button>';
 
                     // termine x einfärben
-                    let cal_x = JSON.parse(localstorage.getitem('cal_x'))
+                    let cal_x = JSON.parse(localStorage.getItem('cal_x'))
                     let arr_x = cal_x.filter(element => element.day_id === tag)[0][ausgewähltesjahr]
                     if (arr_x === 1) { var ferienx = '<button id="' + tag + '_ferien_cal_x_id" title="ferien berlin" class="feriebutton cal_x" onclick="ferien_click(\'cal_x\', \'' + tag + '\')"</button>'; }
 
                     // termine y einfärben
-                    let cal_y = JSON.parse(localstorage.getitem('cal_y'))
+                    let cal_y = JSON.parse(localStorage.getItem('cal_y'))
                     let arr_y = cal_y.filter(element => element.day_id === tag)[0][ausgewähltesjahr]
                     if (arr_y === 1) { var ferieny = '<button id="' + tag + '_ferien_cal_y_id" title="ferien brandenburg" class="feriebutton cal_y" onclick="ferien_click(\'cal_y\', \'' + tag + '\')"></button>'; }
 
                     // termine niko einfärben
-                    let cal_niko = JSON.parse(localstorage.getitem('cal_niko'))
+                    let cal_niko = JSON.parse(localStorage.getItem('cal_niko'))
                     let arr_niko = cal_niko.filter(element => element.day_id === tag)[0][ausgewähltesjahr]
                     if (arr_niko === 1) { var ferienniko = '<button id="' + tag + '_ferien_cal_niko_id" title="ferien niko" class="feriebutton cal_niko" onclick="ferien_click(\'cal_niko\', \'' + tag + '\')"></button>'; }
 
                     // termine sophie einfärben
-                    let cal_sophie = JSON.parse(localstorage.getitem('cal_sophie'))
+                    let cal_sophie = JSON.parse(localStorage.getItem('cal_sophie'))
                     let arr_sophie = cal_sophie.filter(element => element.day_id === tag)[0][ausgewähltesjahr]
                     if (arr_sophie === 1) { var feriensophie = '<button id="' + tag + '_ferien_cal_sophie_id" title="ferien sophie" class="feriebutton cal_sophie" onclick="ferien_click(\'cal_sophie\', \'' + tag + '\')"></button>'; }
 
                     //////////////////
                     //text kommt von cal_niko_text
                     labelx_mittext = '<input id= "' + tag + '_lable' + '" onchange="labelx_aendern(\'' + tag + '\', this.value)" class="labelx" type="text" value="">'
-                    let cal_niko_text = JSON.parse(localstorage.getitem('cal_niko_text'))
+                    let cal_niko_text = JSON.parse(localStorage.getItem('cal_niko_text'))
                     let arr_niko_text = cal_niko_text.filter(element => element.day_id === tag)[0][ausgewähltesjahr]
                     if (arr_niko_text !== '0' && arr_niko_text !== null) {
                         //console.log(tag +' - ' + arr_niko_text)
