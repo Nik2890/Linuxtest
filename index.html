@@ -313,7 +313,7 @@
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         async function signinwithemail() {
-            const { data, error } = await database.auth.signinwithpassword({
+            const { data, error } = await database.auth.signInWithPassword({
                 email: document.getElementById("email_id").value,
                 password: document.getElementById("password_id").value,
             })
