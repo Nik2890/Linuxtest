@@ -314,8 +314,8 @@
 
         async function signinwithemail() {
             const { data, error } = await database.auth.signinwithpassword({
-                email: document.getelementbyid("email_id").value,
-                password: document.getelementbyid("password_id").value,
+                email: Document.getelementbyid("email_id").value,
+                password: Document.getelementbyid("password_id").value,
             })
 
             readdb()
@@ -323,8 +323,8 @@
 
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-        function loginshowflex() { document.queryselector(".formlogin").style.display = "grid"; }
-        function loginshownone() { document.queryselector(".formlogin").style.display = "none"; }
+        function loginshowflex() { Document.queryselector(".formlogin").style.display = "grid"; }
+        function loginshownone() { Document.queryselector(".formlogin").style.display = "none"; }
 
 
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -347,7 +347,7 @@
                     //let meinarray = JSON.parse(localStorage.getItem(table_all[table_one]))
                 }
             }
-            var ausgewähltesjahr = document.getelementbyid("year_select").value
+            var ausgewähltesjahr = Document.getelementbyid("year_select").value
             localStorage.setItem("ausgewähltesjahr", ausgewähltesjahr)
             urlaub_zählen()
             loginshownone()
@@ -371,8 +371,8 @@
 
         async function ferien_click(table, day_id) {
 
-            let jahr_x = document.getelementbyid("year_select").value
-            let element = document.getelementbyid(day_id + '_ferien_' + table + '_id')
+            let jahr_x = Document.getelementbyid("year_select").value
+            let element = Document.getelementbyid(day_id + '_ferien_' + table + '_id')
 
             if (element.classlist.contains(table)) {
                 schreiben(table, day_id, '0')
@@ -389,7 +389,7 @@
 
         async function schreiben(table, day_id, text) {
 
-            let jahr_x = document.getelementbyid("year_select").value
+            let jahr_x = Document.getelementbyid("year_select").value
 
             const { data, error } = await database
                 .from(table)
@@ -426,7 +426,7 @@
                     count++;
                 }
             }
-            document.getelementbyid("niko_urlaubstage").innerhtml = 'niko ' + '(' + (40 - count) + ')'
+            Document.getelementbyid("niko_urlaubstage").innerhtml = 'niko ' + '(' + (40 - count) + ')'
 
 
 
@@ -438,13 +438,13 @@
                     count++;
                 }
             }
-            document.getelementbyid("sophie_urlaubstage").innerhtml = 'sophie ' + '(' + (30 - count) + ')'
+            Document.getelementbyid("sophie_urlaubstage").innerhtml = 'sophie ' + '(' + (30 - count) + ')'
 
         }
 
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-        function openform() { document.queryselector(".form1").style.display = "flex"; }
+        function openform() { Document.queryselector(".form1").style.display = "flex"; }
 
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -461,14 +461,14 @@
             let kalenderwoche_nr = 0
 
             // durch die monate iterieren
-            document.getelementbyid("calendar").innerhtml = ""
+            Document.getelementbyid("calendar").innerhtml = ""
             for (let month = 0; month < 12; month++) {
                 // montas div tag erstellen
 
 
 
-                let calendar = document.getelementbyid("calendar").innerhtml;
-                document.getelementbyid("calendar").innerhtml = calendar + '<div class="month"' + 'id="' + monate[month] + '">' + monate[month] + '</div>'
+                let calendar = Document.getelementbyid("calendar").innerhtml;
+                Document.getelementbyid("calendar").innerhtml = calendar + '<div class="month"' + 'id="' + monate[month] + '">' + monate[month] + '</div>'
 
 
                 for (let day = 1; day <= getdaysinmonth(ausgewähltesjahr, month); day++) {
@@ -487,7 +487,7 @@
 
                     let s_day = day
                     // tage mit 0 fuellen
-                    let calendar = document.getelementbyid(monate[month]).innerhtml;
+                    let calendar = Document.getelementbyid(monate[month]).innerhtml;
                     if (day <= 9) {
                         s_day = "0" + day
                     }
@@ -568,7 +568,7 @@
 
                 
                     //tage zusammensetzen
-                    document.getelementbyid(monate[month]).innerhtml = calendar
+                    Document.getelementbyid(monate[month]).innerhtml = calendar
 
                         + tages_container
                         + tagformat
@@ -604,7 +604,7 @@
 
     <form class="form1" id="form1">
         <button class="closebuttony"
-            onclick="(() => { event.preventdefault(); document.queryselector('.form1').style.display = 'none'; })()">x</button>
+            onclick="(() => { event.preventdefault(); Document.queryselector('.form1').style.display = 'none'; })()">x</button>
     </form>
 
 
@@ -614,7 +614,7 @@
 
         <div class="formemaibuttony">
             <button class="closebutton"
-                onclick="(() => { event.preventdefault(); document.queryselector('.formlogin').style.display = 'none'; })()">x</button>
+                onclick="(() => { event.preventdefault(); Document.queryselector('.formlogin').style.display = 'none'; })()">x</button>
         </div>
 
         <div class="formemaitext">
