@@ -473,14 +473,14 @@
 
                 for (let day = 1; day <= getdaysinmonth(ausgewähltesjahr, month); day++) {
 
-                    if (new Date(ausgewähltesjahr, month, day).getday() == 1) {
+                    if (new Date(ausgewähltesjahr, month, day).getDay() == 1) {
                         kalenderwoche_nr = kalenderwoche_nr + 1
                     }
 
 
                     //wochenenden bestimmen
                     var tagformat = '<div class = "daysformat"  onclick="openform()">'
-                    if (new Date(ausgewähltesjahr, month, day).getday() == 0 || new Date(ausgewähltesjahr, month, day).getday() == 6) {
+                    if (new Date(ausgewähltesjahr, month, day).getDay() == 0 || new Date(ausgewähltesjahr, month, day).getDay() == 6) {
                         var tagformat = '<div class = "daysformat wochenende" onclick="openform()">'
                     }
 
@@ -543,7 +543,7 @@
 
 
                     //kalenderwoche nur am mo einfügen
-                    if (new Date(ausgewähltesjahr, month, day).getday() == 1) { kalenderwoche_nr_am_mo = 'kw ' + kalenderwoche_nr + ' - ' }
+                    if (new Date(ausgewähltesjahr, month, day).getDay() == 1) { kalenderwoche_nr_am_mo = 'kw ' + kalenderwoche_nr + ' - ' }
                     else { kalenderwoche_nr_am_mo = '' }
 
 
@@ -573,7 +573,7 @@
                         + tages_container
                         + tagformat
                         //+ kalenderwoche_nr_am_mo
-                        + wochentage[new Date(ausgewähltesjahr, month, day).getday()] + ' '
+                        + wochentage[new Date(ausgewähltesjahr, month, day).getDay()] + ' '
                         + day + '.'
                         + '</div>'
 
