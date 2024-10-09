@@ -551,8 +551,8 @@
                     //heute färben
                     let heute_ = new Date();
                     let tag_ = heute_.getDate();
-                    let monat_ = heute_.getmonth() + 1; // monat ist 0-basiert, also +1
-                    let jahr_ = heute_.getfullyear();
+                    let monat_ = heute_.getMonth() + 1; // monat ist 0-basiert, also +1
+                    let jahr_ = heute_.getFullYear();
                     let monat_s = (monat_ < 10 ? "0" : "") + monat_;
                     let tag_s = (tag_ < 10 ? "0" : "") + tag_; 
                     let tages_container = '<div class="day" id="' + s_day + '_' + (s_month) + '_' + ausgewähltesjahr + '_id' + '">';
